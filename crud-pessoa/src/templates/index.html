@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="menu">
+        <h2>Menu Principal</h2>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('cadastrar_pessoa') }}">Cadastrar Pessoa</a></li>
+                <li><a href="{{ url_for('listar_pessoas') }}">Listar Pessoas</a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

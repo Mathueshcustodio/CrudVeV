@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Editar Pessoas</h2>
+    <form method="POST" action="{{ url_for('editar_pessoa', id=pessoa.id) }}">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" oninput="this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '')" id="nome" name="nome" value="{{ pessoa.nome }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" oninput="this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '')" id="sobrenome" name="sobrenome" value="{{ pessoa.sobrenome }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" oninput="this.value = this.value.slice(0, 11)" value="{{ pessoa.cpf }}"  required>
+        </div>
+        
+        <div class="form-group">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="Datetime" id="data_nascimento" name="data_nascimento" value="{{ pessoa.data_de_nascimento }}" required>
+        </div>
+        
+        <button type="submit" class="btn btn-danger">Salvar Alterações</button>
+        <a href="{{ url_for('listar_pessoas') }}" class="btn">Cancelar</a>
+    </form>
+{% endblock %}

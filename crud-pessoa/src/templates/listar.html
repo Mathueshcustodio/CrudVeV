@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- adicionado para as mensagens aparecerem no html -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<h2>Lista de Pessoas Cadastradas</h2>
+
+
+{% if pessoas %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>CPF</th>
+                <th>Data Nasc.</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pessoa in pessoas %}
+                <tr>
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.sobrenome }}</td>
+                    <td>{{ pessoa.cpf }}</td>
+                    <td>{{ pessoa.data_de_nascimento }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_pessoa', id=pessoa.id) }}" class="btn btn-warning">Editar</a>
+                        <a href="{{ url_for('remover_pessoa', id=pessoa.id) }}" class="btn btn-danger">Remover</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Nenhuma pessoa cadastrada ainda.</p>
+{% endif %}
+
+<a href="{{ url_for('cadastrar_pessoa') }}" class="btn btn-primary">Cadastrar Nova Pessoa</a>
+<a href="{{ url_for('index') }}" class="btn btn-primary">Página Inicial</a>
+
+{% endblock %}
