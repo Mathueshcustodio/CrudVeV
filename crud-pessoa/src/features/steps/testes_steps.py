@@ -20,7 +20,7 @@ def step_impl(context):
 @then('a pessoa deve ser cadastrada com sucesso')
 def step_impl(context):
     response_text = context.response.get_data(as_text=True)
-    print(response_text)  # Debug, remova depois
+    print(response_text)  
     assert 'Pessoa cadastrada com sucesso!' in response_text
 
 @given('que existem pessoas cadastradas no sistema')

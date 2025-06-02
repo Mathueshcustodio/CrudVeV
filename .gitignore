@@ -176,3 +176,4 @@ cython_debug/
 *.pyc
 __pycache__/
 
+.hintrc 

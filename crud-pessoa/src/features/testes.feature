@@ -15,7 +15,7 @@ Funcionalidade: Gerenciamento de pessoas
     Quando eu acessar a página de listagem de pessoas
     Então o sistema deve exibir todas as pessoas cadastradas
 
-  Cenário: Editar os dados de uma pessoa existente
+  Cenário: Editar os dados de uma pessoa existente - FALHOU
     Dado que existe uma pessoa cadastrada com CPF "12345678900"
     Quando eu alterar o nome dessa pessoa para "JoAo Atualizado"
     Então os dados da pessoa devem ser atualizados com sucesso
@@ -26,7 +26,7 @@ Funcionalidade: Gerenciamento de pessoas
     Quando eu solicitar a remoção dessa pessoa
     Então a pessoa deve ser removida com sucesso
 
-  Cenário: Tentar cadastrar uma pessoa com CPF duplicado
+  Cenário: Tentar cadastrar uma pessoa com CPF duplicado - FALHOU
     Dado que já existe uma pessoa com CPF "11122233344" cadastrada
     Quando eu tentar cadastrar outra pessoa com o mesmo CPF
     Então o sistema deve exibir uma mensagem de erro
